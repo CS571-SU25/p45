@@ -9,17 +9,17 @@ import YourWishlist from './components/YourWishlist';
 import Tips from './components/Tips';
 
 function NavBar() {
-  const goTo = (path) => {
-    window.location.hash = path;
+  const navigate = (hashPath) => {
+    window.location.hash = hashPath;
   };
 
   return (
-    <div style={{ padding: '10px', textAlign: 'center', background: '#eee' }}>
-      <button onClick={() => goTo('/')} style={{ margin: '0 10px' }}>Home</button>
-      <button onClick={() => goTo('/about-us')} style={{ margin: '0 10px' }}>About Us</button>
-      <button onClick={() => goTo('/wishlist')} style={{ margin: '0 10px' }}>Your Wishlist</button>
-      <button onClick={() => goTo('/tips')} style={{ margin: '0 10px' }}>Tips</button>
-      <button onClick={() => goTo('/other-info')} style={{ margin: '0 10px' }}>Other Info</button>
+    <div className="navbar">
+      <button onClick={() => navigate('/')}>Home</button>
+      <button onClick={() => navigate('/about-us')}>About Us</button>
+      <button onClick={() => navigate('/wishlist')}>Your Wishlist</button>
+      <button onClick={() => navigate('/tips')}>Tips</button>
+      <button onClick={() => navigate('/other-info')}>Other Info</button>
     </div>
   );
 }
@@ -27,6 +27,7 @@ function NavBar() {
 function App() {
   return (
     <HashRouter>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about-us" element={<AboutUs />}></Route>
