@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import { HashRouter, Routes, Route } from 'react-router';
 import './App.css';
 
@@ -9,6 +7,22 @@ import AboutUs from './components/AboutUs';
 import OtherInfo from './components/OtherInfo';
 import YourWishlist from './components/YourWishlist';
 import Tips from './components/Tips';
+
+function NavBar() {
+  const goTo = (path) => {
+    window.location.hash = path;
+  };
+
+  return (
+    <div style={{ padding: '10px', textAlign: 'center', background: '#eee' }}>
+      <button onClick={() => goTo('/')} style={{ margin: '0 10px' }}>Home</button>
+      <button onClick={() => goTo('/about-us')} style={{ margin: '0 10px' }}>About Us</button>
+      <button onClick={() => goTo('/wishlist')} style={{ margin: '0 10px' }}>Your Wishlist</button>
+      <button onClick={() => goTo('/tips')} style={{ margin: '0 10px' }}>Tips</button>
+      <button onClick={() => goTo('/other-info')} style={{ margin: '0 10px' }}>Other Info</button>
+    </div>
+  );
+}
 
 function App() {
   return (
