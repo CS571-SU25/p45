@@ -7,22 +7,28 @@ import AboutUs from './components/AboutUs';
 import OtherInfo from './components/OtherInfo';
 import YourWishlist from './components/YourWishlist';
 import Tips from './components/Tips';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 function NavBar() {
-  const navigate = (hashPath) => {
-    window.location.hash = hashPath;
-  };
-
   return (
-    <div className="navbar">
-      <button onClick={() => navigate('/')}>Home</button>
-      <button onClick={() => navigate('/about-us')}>About Us</button>
-      <button onClick={() => navigate('/wishlist')}>Your Wishlist</button>
-      <button onClick={() => navigate('/tips')}>Tips</button>
-      <button onClick={() => navigate('/other-info')}>Other Info</button>
-    </div>
+    <Navbar bg="light" expand="md" className="mb-4">
+      <Container>
+        <Navbar.Brand href="#/">U.S. Travel Wishlist</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#/">Home</Nav.Link>
+            <Nav.Link href="#/about-us">About Us</Nav.Link>
+            <Nav.Link href="#/wishlist">Your Wishlist</Nav.Link>
+            <Nav.Link href="#/tips">Tips</Nav.Link>
+            <Nav.Link href="#/other-info">Other Info</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
+
 
 function App() {
   return (
